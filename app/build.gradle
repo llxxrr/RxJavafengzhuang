@@ -1,0 +1,49 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "com.example.lxr.rxjavafengzhuang"
+        minSdkVersion 15
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    /*5.0新控件的依赖*/
+    compile 'com.android.support:design:26.0.0-alpha1'
+
+    /*RxJava与RxAndroid的依赖*/
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    compile 'io.reactivex.rxjava2:rxjava:2.1.0'
+
+    /*Retrofit与RxAndroid配置依赖*/
+    compile 'com.squareup.retrofit2:retrofit:2.3.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+
+    /*使Retrofit的转化器自定义完成数据的转化
+    * 就是我们可以接口中少写一些bean类
+    * */
+    compile 'com.squareup.retrofit2:converter-scalars:+'
+
+    /*gson解析*/
+    compile 'com.google.code.gson:gson:2.8.1'
+    /*Log工具:http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/1115/3685.html*/
+    compile 'com.github.zhaokaiqiang.klog:library:1.6.0'
+    compile 'com.facebook.fresco:fresco:0.12.0'
+}
